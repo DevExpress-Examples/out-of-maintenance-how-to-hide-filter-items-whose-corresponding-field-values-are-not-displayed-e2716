@@ -1,3 +1,9 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [MainWindow.xaml](./CS/DXPivotGrid_HowToHideFilterItems/MainWindow.xaml) (VB: [MainWindow.xaml.vb](./VB/DXPivotGrid_HowToHideFilterItems/MainWindow.xaml.vb))
+* [MainWindow.xaml.cs](./CS/DXPivotGrid_HowToHideFilterItems/MainWindow.xaml.cs) (VB: [MainWindow.xaml.vb](./VB/DXPivotGrid_HowToHideFilterItems/MainWindow.xaml.vb))
+<!-- default file list end -->
 # How to hide filter items whose corresponding field values are not displayed
 
 
