@@ -1,4 +1,4 @@
-﻿<dx:ThemedWindow x:Class="DXPivotGrid_HowToHideFilterItems.MainWindow" Height="400" Width="800" Title="How to Hide Filter Items" 
+<dx:ThemedWindow x:Class="DXPivotGrid_HowToHideFilterItems.MainWindow" Height="400" Width="800" Title="How to Hide Filter Items" 
                  Loaded="ThemedWindow_Loaded"
     xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
     xmlns:dxpg="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid" 
