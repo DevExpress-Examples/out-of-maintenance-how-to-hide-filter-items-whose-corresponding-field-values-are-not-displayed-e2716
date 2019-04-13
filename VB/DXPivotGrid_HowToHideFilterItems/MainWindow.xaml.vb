@@ -1,12 +1,16 @@
-﻿Imports DevExpress.Xpf.PivotGrid
-Imports System.Collections.Generic
+﻿Imports System.Collections.Generic
+Imports System.Windows
+Imports DevExpress.Xpf.PivotGrid
 
 Namespace DXPivotGrid_HowToHideFilterItems
 	Partial Public Class MainWindow
-		Inherits DevExpress.Xpf.Core.ThemedWindow
+		Inherits Window
 
+		Private productReportsDataTable As New DataSet1.ProductReportsDataTable()
+		Private productReportsDataAdapter As New DataSet1TableAdapters.ProductReportsTableAdapter()
 		Public Sub New()
 			InitializeComponent()
+			pivotGridControl1.DataSource = productReportsDataAdapter.GetData()
 		End Sub
 		Private Sub pivotGridControl1_CustomFilterPopupItems(ByVal sender As Object, ByVal e As PivotCustomFilterPopupItemsEventArgs)
 			Dim values As List(Of Object) = e.Field.GetVisibleValues()
@@ -16,10 +20,6 @@ Namespace DXPivotGrid_HowToHideFilterItems
 					e.Items.RemoveAt(i)
 				End If
 			Next i
-		End Sub
-
-		Private Sub ThemedWindow_Loaded(ByVal sender As Object, ByVal e As System.Windows.RoutedEventArgs)
-			pivotGridControl1.BestFit()
 		End Sub
 	End Class
 End Namespace
