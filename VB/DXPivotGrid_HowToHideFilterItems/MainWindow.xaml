@@ -1,22 +1,40 @@
-<Window xmlns:dxpg="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        x:Class="DXPivotGrid_HowToHideFilterItems.MainWindow"
-        Height="400" Width="800" Title="Main Window">
+﻿<dx:ThemedWindow x:Class="DXPivotGrid_HowToHideFilterItems.MainWindow" Height="400" Width="800" Title="How to Hide Filter Items" 
+                 Loaded="ThemedWindow_Loaded"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
+    xmlns:dxpg="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <Window.Resources>
+        <dx:ExcelItemsSource x:Key="ExcelItemsSource"
+                             FileUri="pack://application:,,,/DXPivotGrid_HowToHideFilterItems;component/Data/SalesPerson.xlsx"
+                             StreamDocumentFormat="Xlsx"
+                             WorksheetName="Data">
+            <dx:ExcelItemsSource.Columns>
+                <dx:ExcelColumn Name="CategoryName" ColumnType="{x:Type sys:String}" />
+                <dx:ExcelColumn Name="Country" ColumnType="{x:Type sys:String}" />
+                <dx:ExcelColumn Name="ProductName" ColumnType="{x:Type sys:String}" />
+                <dx:ExcelColumn Name="Sales Person" ColumnType="{x:Type sys:String}" />
+                <dx:ExcelColumn Name="OrderDate" ColumnType="{x:Type sys:DateTime}" />
+                <dx:ExcelColumn Name="OrderID" ColumnType="{x:Type sys:Double}" IsSelected="False"/>
+                <dx:ExcelColumn Name="Quantity" ColumnType="{x:Type sys:Double}" />
+                <dx:ExcelColumn Name="Discount" ColumnType="{x:Type sys:Double}" />
+                <dx:ExcelColumn Name="Extended Price" ColumnType="{x:Type sys:Double}"/>
+                <dx:ExcelColumn Name="UnitPrice" ColumnType="{x:Type sys:Double}" />
+            </dx:ExcelItemsSource.Columns>
+        </dx:ExcelItemsSource>
+    </Window.Resources>
+    
     <Grid>
-        <dxpg:PivotGridControl CustomFilterPopupItems="pivotGridControl1_CustomFilterPopupItems"
-                               Name="pivotGridControl1">
+        <dxpg:PivotGridControl CustomFilterPopupItems="pivotGridControl1_CustomFilterPopupItems" Name="pivotGridControl1"
+                               DataSource="{Binding Path=Data, Source={StaticResource ExcelItemsSource}}">
             <dxpg:PivotGridControl.Fields>
-                <dxpg:PivotGridField Name="fieldSales" FieldName="ProductSales" Area="DataArea"
-                                     Caption="Product Sales" />
-                <dxpg:PivotGridField Name="fieldYear" FieldName="ShippedDate" Area="ColumnArea"
-                                     Caption="Year" GroupInterval="DateYear" />
-                <dxpg:PivotGridField Name="fieldCategoryName" FieldName="CategoryName" Area="RowArea"
-                                     AreaIndex="0" Caption="Category Name" />
-                <dxpg:PivotGridField Name="fieldProductName" FieldName="ProductName" Area="RowArea"
-                                     AreaIndex="1" Caption="Product Name" />
+                <dxpg:PivotGridField Name="fieldSales" FieldName="Extended Price" Area="DataArea" Caption="Product Sales" />
+                <dxpg:PivotGridField Name="fieldYear" FieldName="OrderDate" Area="ColumnArea" Caption="Year" GroupInterval="DateYear" />
+                <dxpg:PivotGridField Name="fieldCategoryName" FieldName="CategoryName" Area="RowArea" AreaIndex="0" Caption="Category Name" />
+                <dxpg:PivotGridField Name="fieldProductName" FieldName="ProductName" Area="RowArea" AreaIndex="1" Caption="Product Name" />
             </dxpg:PivotGridControl.Fields>
         </dxpg:PivotGridControl>
     </Grid>
-</Window>
+</dx:ThemedWindow>

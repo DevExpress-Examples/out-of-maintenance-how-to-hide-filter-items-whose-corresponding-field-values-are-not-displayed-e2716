@@ -7,9 +7,22 @@
 # How to hide filter items whose corresponding field values are not displayed
 
 
-<p>The following example shows how to hide filter items whose corresponding field values are not displayed.</p><p>In this example, the Row Header Area of the PivotGrid contains two fields: 'Category Name' and 'Product Name'. If an end-user hides a particular product category via the 'Category Name' field's filter drop-down, the corresponding products will be excluded from the filter drop-down of the 'Product Name' field. To hide filter items, the CustomFilterPopupItems event is handled.</p><br />
+This example demoinstrtates  how to hide filter items whose field values are filtered out by another filter.
 
+In this example, the Row Header Area contains two fields: 'Category Name' and 'Product Name'. If an end-user hides a particular product category in the 'Category Name' field's filter drop-down, the products in that category are excluded from the filter drop-down of the 'Product Name' field. The [CustomFilterPopupItems](https://docs.devexpress.com/WPF/DevExpress.Xpf.PivotGrid.PivotGridControl.CustomFilterPopupItems) is handled to hide filter items.
 
-<br/>
+Note that you can set the [PivotGridControl.ShowOnlyAvailableFilterItems](https://docs.devexpress.com/WPF/DevExpress.Xpf.PivotGrid.PivotGridControl.ShowOnlyAvailableFilterItems) property to **true** for the same effect.
 
+![screenshot](./images/screenshot.png)
 
+API in this example:
+
+* [CustomFilterPopupItems](https://docs.devexpress.com/WPF/DevExpress.Xpf.PivotGrid.PivotGridControl.CustomFilterPopupItems) event
+* [PivotGridField.GetVisibleValues](https://docs.devexpress.com/WPF/DevExpress.Xpf.PivotGrid.PivotGridField.GetVisibleValues) method
+* [PivotCustomFilterPopupItemsEventArgs.Items](https://docs.devexpress.com/WPF/DevExpress.Xpf.PivotGrid.PivotCustomFilterPopupItemsEventArgs.Items) property
+* [PivotGridFilterItem](https://docs.devexpress.com/CoreLibraries/DevExpress.XtraPivotGrid.Data.PivotGridFilterItem) class
+* **ExcelItemsSource** extension - requires the DevExpress.Xpf.Core.Extensions library.
+
+See also:
+
+* [Filtering Basics](https://docs.devexpress.com/WPF/8010)
