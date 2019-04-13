@@ -21,7 +21,7 @@ API in this example:
 * [PivotGridField.GetVisibleValues](https://docs.devexpress.com/WPF/DevExpress.Xpf.PivotGrid.PivotGridField.GetVisibleValues) method
 * [PivotCustomFilterPopupItemsEventArgs.Items](https://docs.devexpress.com/WPF/DevExpress.Xpf.PivotGrid.PivotCustomFilterPopupItemsEventArgs.Items) property
 * [PivotGridFilterItem](https://docs.devexpress.com/CoreLibraries/DevExpress.XtraPivotGrid.Data.PivotGridFilterItem) class
-* **ExcelItemsSource** extension - requires the DevExpress.Xpf.Core.Extensions library.
+* **ExcelItemsSource** extension - requires the DevExpress.Xpf.Core.Extensions and DevExpress.DataAccess libraries.
 
 See also:
 
